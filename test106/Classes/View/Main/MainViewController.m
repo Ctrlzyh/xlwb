@@ -6,26 +6,65 @@
 //
 
 #import "MainViewController.h"
+#import "ProfileTableViewController.h"
+#import "DiscoverTableViewController.h"
+#import "MessageTableViewController.h"
+#import "HomeTableViewController.h"
 
 @interface MainViewController ()
-
+@property (nonatomic,strong) UIButton *composedButton;
 @end
 
 @implementation MainViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tabBar addSubview:self.composedButton];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTabBarChild];
+    [self setUI];
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (void)setUI {
+    [self.composedButton sizeToFit];
+    NSUInteger count = self.childViewControllers.count;
+    float w = self.tabBar.bounds.size.width / count - 1;
+    self.composedButton.frame = CGRectInset(self.tabBar.bounds, 2*w, 0);
+   
 }
-*/
 
+- (UIButton *)composedButton {
+    if(!_composedButton){
+        _composedButton = [[UIButton alloc] init];
+        [_composedButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
+        [_composedButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
+        [_composedButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
+        [_composedButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
+    }
+//    [self.tabBar addSubview:_composedButton];
+    return _composedButton;
+}
+
+- (void)setTabBarChild {
+    self.tabBar.tintColor = [UIColor orangeColor];
+    [self addChildViewControllers:[[HomeTableViewController alloc] init] WithTitle:@"首页" WithImgName:@"tabbar_home"];
+    [self addChildViewControllers:[[MessageTableViewController alloc] init] WithTitle:@"消息" WithImgName:@"tabbar_message_center"];
+    [self addChildViewController:[[UIViewController alloc] init]];
+    [self addChildViewControllers:[[DiscoverTableViewController alloc] init] WithTitle:@"发现" WithImgName:@"tabbar_discover"];
+    [self addChildViewControllers:[[ProfileTableViewController alloc] init] WithTitle:@"我" WithImgName:@"tabbar_profile"];
+}
+
+- (void)addChildViewControllers:(UIViewController *)childController WithTitle:(NSString *)title WithImgName:(NSString *)imgName{
+    UIViewController *vc = childController;
+    vc.title = title;
+    vc.tabBarItem.image = [UIImage imageNamed: imgName];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self addChildViewController:nav];
+}
 @end
