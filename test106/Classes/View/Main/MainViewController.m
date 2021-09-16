@@ -10,6 +10,7 @@
 #import "DiscoverTableViewController.h"
 #import "MessageTableViewController.h"
 #import "HomeTableViewController.h"
+#import "UIButton+Extension.h"
 
 @interface MainViewController ()
 @property (nonatomic,strong) UIButton *composedButton;
@@ -29,25 +30,23 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)clickComposedButton{
+    NSLog(@"----->");
+}
 
 
 - (void)setUI {
-    [self.composedButton sizeToFit];
+//    [self.composedButton sizeToFit];
     NSUInteger count = self.childViewControllers.count;
     float w = self.tabBar.bounds.size.width / count - 1;
     self.composedButton.frame = CGRectInset(self.tabBar.bounds, 2*w, 0);
-   
+    [self.composedButton addTarget:self action:@selector(clickComposedButton) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (UIButton *)composedButton {
     if(!_composedButton){
-        _composedButton = [[UIButton alloc] init];
-        [_composedButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
-        [_composedButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
-        [_composedButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
-        [_composedButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
+        _composedButton = [[UIButton alloc] buttonWithImgName:@"tabbar_compose_icon_add" WithBgImgName:@"tabbar_compose_button"];
     }
-//    [self.tabBar addSubview:_composedButton];
     return _composedButton;
 }
 
@@ -67,4 +66,5 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];
 }
+
 @end

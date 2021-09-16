@@ -16,6 +16,9 @@
 		BC6F401B26F2F1E90084B333 /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F401A26F2F1E90084B333 /* DiscoverTableViewController.m */; };
 		BC6F401E26F2F1FB0084B333 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F401D26F2F1FB0084B333 /* MessageTableViewController.m */; };
 		BC6F403326F2F4770084B333 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F403226F2F4770084B333 /* MainViewController.m */; };
+		BC6F403F26F333730084B333 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F403E26F333730084B333 /* UIButton+Extension.m */; };
+		BC6F404326F33F030084B333 /* VisitotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F404226F33F030084B333 /* VisitotTableViewController.m */; };
+		BC6F404626F340C00084B333 /* VisitorView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F404526F340C00084B333 /* VisitorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,12 @@
 		BC6F401D26F2F1FB0084B333 /* MessageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		BC6F403126F2F4770084B333 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		BC6F403226F2F4770084B333 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		BC6F403D26F333730084B333 /* UIButton+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		BC6F403E26F333730084B333 /* UIButton+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		BC6F404126F33F030084B333 /* VisitotTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisitotTableViewController.h; sourceTree = "<group>"; };
+		BC6F404226F33F030084B333 /* VisitotTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisitotTableViewController.m; sourceTree = "<group>"; };
+		BC6F404426F340C00084B333 /* VisitorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisitorView.h; sourceTree = "<group>"; };
+		BC6F404526F340C00084B333 /* VisitorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisitorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +91,7 @@
 		BC6F400C26F2F0830084B333 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BC6F403426F32FFA0084B333 /* Tools */,
 				BC6F400D26F2F0940084B333 /* View */,
 			);
 			path = Classes;
@@ -102,6 +112,7 @@
 		BC6F400E26F2F11C0084B333 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BC6F404026F33EA10084B333 /* Visitor */,
 				BC6F403126F2F4770084B333 /* MainViewController.h */,
 				BC6F403226F2F4770084B333 /* MainViewController.m */,
 			);
@@ -142,6 +153,34 @@
 				BC6F401726F2F1D20084B333 /* ProfileTableViewController.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		BC6F403426F32FFA0084B333 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BC6F403526F3300E0084B333 /* Extension */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		BC6F403526F3300E0084B333 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BC6F403D26F333730084B333 /* UIButton+Extension.h */,
+				BC6F403E26F333730084B333 /* UIButton+Extension.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BC6F404026F33EA10084B333 /* Visitor */ = {
+			isa = PBXGroup;
+			children = (
+				BC6F404126F33F030084B333 /* VisitotTableViewController.h */,
+				BC6F404226F33F030084B333 /* VisitotTableViewController.m */,
+				BC6F404426F340C00084B333 /* VisitorView.h */,
+				BC6F404526F340C00084B333 /* VisitorView.m */,
+			);
+			path = Visitor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,10 +252,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC6F401526F2F1A50084B333 /* HomeTableViewController.m in Sources */,
+				BC6F403F26F333730084B333 /* UIButton+Extension.m in Sources */,
 				BC6F401B26F2F1E90084B333 /* DiscoverTableViewController.m in Sources */,
 				BC6F401E26F2F1FB0084B333 /* MessageTableViewController.m in Sources */,
 				BC6F3FF526F2E6700084B333 /* AppDelegate.m in Sources */,
+				BC6F404326F33F030084B333 /* VisitotTableViewController.m in Sources */,
 				BC6F403326F2F4770084B333 /* MainViewController.m in Sources */,
+				BC6F404626F340C00084B333 /* VisitorView.m in Sources */,
 				BC6F401826F2F1D20084B333 /* ProfileTableViewController.m in Sources */,
 				BC6F400626F2E6710084B333 /* main.m in Sources */,
 			);
