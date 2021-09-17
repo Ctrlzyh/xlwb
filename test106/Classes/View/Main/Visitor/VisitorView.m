@@ -7,6 +7,9 @@
 
 #import "VisitorView.h"
 #import <Masonry/Masonry.h>
+#import "UIButton+Extension.h"
+#import "UILabel+Extension.h"
+#import "UIImageView+Extension.h"
 
 @interface VisitorView ()
 @property (nonatomic ,strong) UIImageView *iconView;
@@ -26,12 +29,26 @@
     // Drawing code
 }
 */
-//+ (void) setupInfoImgName:(NSString *)imgName WithTitle:(NSString *)title{
-////    self.messageLabel.text = title;
-////    if(imgName){
-////        self.iconView.image = [UIImage imageNamed:imgName];
-////    }
-//}
+- (void) setupInfoImgName:(NSString *)imgName WithTitle:(NSString *)title{
+    self.messageLabel.text = title;
+    if(imgName.length){
+        self.homeIconView.image = [UIImage imageNamed:imgName];
+        self.iconView.hidden = YES;
+        [self sendSubviewToBack:self.maskIconView];
+    }else{
+        [self startAnim];
+    }
+}
+
+-(void) startAnim{
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    anim.toValue = @(2*M_PI);
+    anim.repeatCount = MAXFLOAT;
+    anim.duration = 20;
+    anim.removedOnCompletion = false;
+    
+    [self.iconView.layer addAnimation:anim forKey:nil];
+}
 
 - (instancetype) initWithVisitor{
     if(self == [super init]){
@@ -86,52 +103,36 @@
 }
 -(UIImageView *) iconView{
     if(!_iconView){
-        _iconView = [[UIImageView alloc] init];
-        _iconView.image = [UIImage imageNamed: @"visitordiscover_feed_image_smallicon"];
+        _iconView = [[UIImageView alloc] imgViewWithImgName:@"visitordiscover_feed_image_smallicon"];
     }
-    [_iconView sizeToFit];
     return _iconView;
 }
 
 -(UIImageView *) homeIconView {
     if(!_homeIconView){
-        _homeIconView = [[UIImageView alloc] init];
-        _homeIconView.image = [UIImage imageNamed: @"visitordiscover_feed_image_house"];
+        _homeIconView = [[UIImageView alloc] imgViewWithImgName:@"visitordiscover_feed_image_house"];
     }
-    [_homeIconView sizeToFit];
     return _homeIconView;
 }
 
 -(UILabel *)messageLabel {
     if(!_messageLabel){
-        _messageLabel = [[UILabel alloc] init];
-        _messageLabel.text = @"关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜";
-        _messageLabel.textColor = [UIColor darkGrayColor];
-        _messageLabel.font = [UIFont systemFontOfSize:14];
-        _messageLabel.numberOfLines = 0;
-        _messageLabel.textAlignment = NSTextAlignmentCenter;
-//        _messageLabel.backgroundColor = [UIColor redColor];
+        _messageLabel = [[UILabel alloc] labelWithTitle:@"关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜" WithFontSize:14.0 WithTitleColor:[UIColor darkGrayColor]];
     }
-//    [_messageLabel sizeToFit];
     return _messageLabel;
 }
 
 -(UIButton *)registerButton{
     if(!_registerButton){
-        _registerButton = [[UIButton alloc] init];
-        [_registerButton setTitle:@"注册" forState:UIControlStateNormal];
-        [_registerButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        [_registerButton setBackgroundImage:[UIImage imageNamed:@"common_button_white_disable"] forState:UIControlStateNormal];
+        _registerButton = [[UIButton alloc] buttonWithTitle:@"注册" WithTitleColor:[UIColor orangeColor] WithImgName:@"common_button_white_disable"];
     }
     return _registerButton;
 }
 
 -(UIButton *)loginButton{
+//    [UIButton alloc] button
     if(!_loginButton){
-        _loginButton = [[UIButton alloc] init];
-        [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
-        [_loginButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        [_loginButton setBackgroundImage:[UIImage imageNamed:@"common_button_white_disable"] forState:UIControlStateNormal];
+        _loginButton = [[UIButton alloc] buttonWithTitle:@"登录" WithTitleColor:[UIColor darkGrayColor] WithImgName:@"common_button_white_disable"];
     }
     return _loginButton;
 }

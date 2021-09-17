@@ -6,12 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "VisitorView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VisitotTableViewController : UITableViewController
 @property (nonatomic,assign) BOOL userLogin;
-@property (nonatomic,strong) UIView *visitorView;
+@property (nonatomic,strong) VisitorView *visitorView;
 
 @end
 

@@ -18,10 +18,8 @@
         [super loadView];
     }else{
         self.visitorView = [[VisitorView alloc] initWithVisitor];
+//        [self.visitorView setupInfoImgName:<#(nonnull NSString *)#> WithTitle:<#(nonnull NSString *)#>]
         self.view = self.visitorView;
-//        [VisitorView alloc] setup
-//        self.visitorView
-//        view.backgroundColor = [UIColor colorWithWhite:237/255 alpha:1.0];;
     }
 }
 - (void)viewDidLoad {

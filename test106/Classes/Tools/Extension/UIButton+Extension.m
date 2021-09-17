@@ -18,4 +18,12 @@
     [btn sizeToFit];
     return btn;
 }
+
+- (instancetype)buttonWithTitle:(NSString *)title WithTitleColor:(UIColor *)color WithImgName:(NSString *)imgName{
+    UIButton *btn = [[UIButton alloc] init];
+        [btn setTitle:title forState:UIControlStateNormal];
+        [btn setTitleColor:color forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    return btn;
+}
 @end

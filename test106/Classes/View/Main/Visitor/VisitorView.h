@@ -11,7 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VisitorView : UIView
 - (instancetype) initWithVisitor;
-//+ (void) setupInfoImgName:(NSString *)imgName WithTitle:(NSString *)title;
+- (void)setupInfoImgName:(NSString *)imgName WithTitle:(NSString *)title;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

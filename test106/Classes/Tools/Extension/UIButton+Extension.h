@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIButton (Extension)
 - (instancetype)buttonWithImgName:(NSString *)imgName WithBgImgName:(NSString *)bgImgName;
+- (instancetype)buttonWithTitle:(NSString *)title WithTitleColor:(UIColor *)color WithImgName:(NSString *)imgName;
 @end
 
 NS_ASSUME_NONNULL_END
