@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VisitotTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ProfileTableViewController : UITableViewController
+@interface ProfileTableViewController : VisitotTableViewController
 
 @end
 

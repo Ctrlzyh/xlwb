@@ -8,7 +8,6 @@
 #import "VisitotTableViewController.h"
 #import "VisitorView.h"
 @interface VisitotTableViewController ()
-
 @end
 
 @implementation VisitotTableViewController
@@ -18,9 +17,11 @@
     if(self.userLogin){
         [super loadView];
     }else{
-        UIView *view = [[VisitorView alloc] initWithVisitor];
-        self.view = view;
-        view.backgroundColor = [UIColor whiteColor];
+        self.visitorView = [[VisitorView alloc] initWithVisitor];
+        self.view = self.visitorView;
+//        [VisitorView alloc] setup
+//        self.visitorView
+//        view.backgroundColor = [UIColor colorWithWhite:237/255 alpha:1.0];;
     }
 }
 - (void)viewDidLoad {
