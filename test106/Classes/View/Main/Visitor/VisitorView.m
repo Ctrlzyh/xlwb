@@ -50,6 +50,12 @@
     [self.iconView.layer addAnimation:anim forKey:nil];
 }
 
+-(void) Login{
+    [self.delegate clickLogin];
+}
+-(void) Register{
+    [self.delegate clickRegister];
+}
 - (instancetype) initWithVisitor{
     if(self == [super init]){
         [self showUI];
@@ -126,6 +132,7 @@
     if(!_registerButton){
         _registerButton = [[UIButton alloc] buttonWithTitle:@"注册" WithTitleColor:[UIColor orangeColor] WithImgName:@"common_button_white_disable"];
     }
+    [_registerButton addTarget:self action:@selector(Register) forControlEvents:UIControlEventTouchUpInside];
     return _registerButton;
 }
 
@@ -134,6 +141,7 @@
     if(!_loginButton){
         _loginButton = [[UIButton alloc] buttonWithTitle:@"登录" WithTitleColor:[UIColor darkGrayColor] WithImgName:@"common_button_white_disable"];
     }
+    [_loginButton addTarget:self action:@selector(Login) forControlEvents:UIControlEventTouchUpInside];
     return _loginButton;
 }
 

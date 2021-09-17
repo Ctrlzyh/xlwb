@@ -7,7 +7,7 @@
 
 #import "VisitotTableViewController.h"
 #import "VisitorView.h"
-@interface VisitotTableViewController ()
+@interface VisitotTableViewController ()<VisitorViewDelegate>
 @end
 
 @implementation VisitotTableViewController
@@ -18,9 +18,18 @@
         [super loadView];
     }else{
         self.visitorView = [[VisitorView alloc] initWithVisitor];
+        _visitorView.delegate = self;
 //        [self.visitorView setupInfoImgName:<#(nonnull NSString *)#> WithTitle:<#(nonnull NSString *)#>]
         self.view = self.visitorView;
     }
+}
+
+-(void)clickLogin{
+    NSLog(@"123");
+}
+
+-(void)clickRegister{
+    NSLog(@"222");
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

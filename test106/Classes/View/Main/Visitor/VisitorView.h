@@ -8,11 +8,17 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol VisitorViewDelegate <NSObject>
+@required
+- (void)clickLogin;
+- (void)clickRegister;
+@end
 
 @interface VisitorView : UIView
 - (instancetype) initWithVisitor;
 - (void)setupInfoImgName:(NSString *)imgName WithTitle:(NSString *)title;
 
+@property (nonatomic, assign) id <VisitorViewDelegate>delegate;
 
 @end
 
