@@ -32,6 +32,7 @@
 		BC42757B26F48E1400D3FD47 /* UILabel+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		BC42757D26F48FFC00D3FD47 /* UIImageView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Extension.h"; sourceTree = "<group>"; };
 		BC42757E26F48FFC00D3FD47 /* UIImageView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Extension.m"; sourceTree = "<group>"; };
+		BC42758126F5C4B300D3FD47 /* Common.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.pch; sourceTree = "<group>"; };
 		BC6F3FF026F2E6700084B333 /* test106.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test106.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6F3FF326F2E6700084B333 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC6F3FF426F2E6700084B333 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6F403526F3300E0084B333 /* Extension */,
+				BC42758126F5C4B300D3FD47 /* Common.pch */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -478,6 +480,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/test106/Classes/Tools/Common.pch";
 				INFOPLIST_FILE = test106/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,6 +501,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/test106/Classes/Tools/Common.pch";
 				INFOPLIST_FILE = test106/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

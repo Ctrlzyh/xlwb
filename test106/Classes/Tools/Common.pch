@@ -1,0 +1,14 @@
+//
+//  Common.pch
+//  test106
+//
+//  Created by qiaofang on 2021/9/18.
+//
+#import <UIKit/UIKit.h>
+#ifndef Common_pch
+#define Common_pch
+#define WBAppearanceTintColor  [UIColor orangeColor];
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Common_pch */

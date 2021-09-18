@@ -51,7 +51,7 @@
 }
 
 - (void)setTabBarChild {
-    self.tabBar.tintColor = [UIColor orangeColor];
+//    self.tabBar.tintColor = [UIColor orangeColor];
     [self addChildViewControllers:[[HomeTableViewController alloc] init] WithTitle:@"首页" WithImgName:@"tabbar_home"];
     [self addChildViewControllers:[[MessageTableViewController alloc] init] WithTitle:@"消息" WithImgName:@"tabbar_message_center"];
     [self addChildViewController:[[UIViewController alloc] init]];

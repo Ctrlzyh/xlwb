@@ -15,6 +15,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self setupAppearance];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     MainViewController *controller = [[MainViewController alloc] init];
     [self.window setRootViewController:controller];
@@ -22,6 +24,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void)setupAppearance{
+    UINavigationBar.appearance.tintColor = WBAppearanceTintColor;
+    UITabBar.appearance.tintColor = WBAppearanceTintColor;
 }
 
 
