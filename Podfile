@@ -7,6 +7,7 @@ target 'test106' do
 
   # Pods for test106
     pod 'Masonry'
-
-
+    pod 'AFNNetworking'
+    pod 'SDWebImage'
+    pod 'SVProgressHUD'
 end

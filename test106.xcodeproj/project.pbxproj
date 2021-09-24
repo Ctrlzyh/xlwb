@@ -21,6 +21,8 @@
 		BC6F403F26F333730084B333 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F403E26F333730084B333 /* UIButton+Extension.m */; };
 		BC6F404326F33F030084B333 /* VisitotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F404226F33F030084B333 /* VisitotTableViewController.m */; };
 		BC6F404626F340C00084B333 /* VisitorView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F404526F340C00084B333 /* VisitorView.m */; };
+		BC83640826FC63B600C9D59A /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = BC83640726FC63B600C9D59A /* NetworkTools.m */; };
+		BC8364E626FD73BF00C9D59A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8364E526FD73BF00C9D59A /* OAuthViewController.m */; };
 		C4D74FBF34F7B2068AB1BBAC /* Pods_test106.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5FFECFAE303A4F64143F3 /* Pods_test106.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,10 @@
 		BC6F404226F33F030084B333 /* VisitotTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisitotTableViewController.m; sourceTree = "<group>"; };
 		BC6F404426F340C00084B333 /* VisitorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisitorView.h; sourceTree = "<group>"; };
 		BC6F404526F340C00084B333 /* VisitorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisitorView.m; sourceTree = "<group>"; };
+		BC83640626FC63B600C9D59A /* NetworkTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
+		BC83640726FC63B600C9D59A /* NetworkTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
+		BC8364E426FD73BF00C9D59A /* OAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
+		BC8364E526FD73BF00C9D59A /* OAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 		BC6F400D26F2F0940084B333 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC8364E326FD738100C9D59A /* OAuth */,
 				BC6F401226F2F15C0084B333 /* Profile */,
 				BC6F401126F2F1410084B333 /* Discover */,
 				BC6F401026F2F1340084B333 /* Message */,
@@ -183,6 +190,8 @@
 			children = (
 				BC6F403526F3300E0084B333 /* Extension */,
 				BC42758126F5C4B300D3FD47 /* Common.pch */,
+				BC83640626FC63B600C9D59A /* NetworkTools.h */,
+				BC83640726FC63B600C9D59A /* NetworkTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -209,6 +218,15 @@
 				BC6F404526F340C00084B333 /* VisitorView.m */,
 			);
 			path = Visitor;
+			sourceTree = "<group>";
+		};
+		BC8364E326FD738100C9D59A /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				BC8364E426FD73BF00C9D59A /* OAuthViewController.h */,
+				BC8364E526FD73BF00C9D59A /* OAuthViewController.m */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		BE7A343191D68634E21D8F90 /* Frameworks */ = {
@@ -331,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8364E626FD73BF00C9D59A /* OAuthViewController.m in Sources */,
 				BC6F401526F2F1A50084B333 /* HomeTableViewController.m in Sources */,
 				BC6F403F26F333730084B333 /* UIButton+Extension.m in Sources */,
 				BC6F401B26F2F1E90084B333 /* DiscoverTableViewController.m in Sources */,
@@ -341,6 +360,7 @@
 				BC6F404626F340C00084B333 /* VisitorView.m in Sources */,
 				BC6F401826F2F1D20084B333 /* ProfileTableViewController.m in Sources */,
 				BC6F400626F2E6710084B333 /* main.m in Sources */,
+				BC83640826FC63B600C9D59A /* NetworkTools.m in Sources */,
 				BC42757F26F48FFC00D3FD47 /* UIImageView+Extension.m in Sources */,
 				BC42757C26F48E1400D3FD47 /* UILabel+Extension.m in Sources */,
 			);

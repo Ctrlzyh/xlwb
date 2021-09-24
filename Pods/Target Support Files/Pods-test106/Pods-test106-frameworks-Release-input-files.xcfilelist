@@ -1,2 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-test106/Pods-test106-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNNetworking/AFNNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework

@@ -1,16 +1,32 @@
 PODS:
+  - AFNNetworking (3.4.8):
+    - SDWebImage
+    - SVProgressHUD
   - Masonry (1.1.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - AFNNetworking
   - Masonry
+  - SDWebImage
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - AFNNetworking
     - Masonry
+    - SDWebImage
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
+  AFNNetworking: c0a09b2950113cc8a939c0c8de4f91bf7020737a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 344d1a0b0030467077b7d02f689024db08280d24
+PODFILE CHECKSUM: abd150e857a7cebec3f4f3dd6b31337a7fe30e73
 
 COCOAPODS: 1.10.1

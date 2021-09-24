@@ -7,6 +7,9 @@
 
 #import "VisitotTableViewController.h"
 #import "VisitorView.h"
+#import "OAuthViewController.h"
+#import "NetworkTools.h"
+
 @interface VisitotTableViewController ()<VisitorViewDelegate>
 @end
 
@@ -43,10 +46,17 @@
 
 -(void)clickLogin{
     NSLog(@"123");
+    OAuthViewController *vc = [[OAuthViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+//    
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 -(void)clickRegister{
     NSLog(@"222");
+    [[NetworkTools alloc] requset:GET URLString:@"baidu.com" parameters:nil finished:^(id _Nonnull result, NSError * _Nonnull error) {
+            
+    }];
 }
 
 
