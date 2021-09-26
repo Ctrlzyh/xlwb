@@ -23,6 +23,7 @@
 		BC6F404626F340C00084B333 /* VisitorView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F404526F340C00084B333 /* VisitorView.m */; };
 		BC83640826FC63B600C9D59A /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = BC83640726FC63B600C9D59A /* NetworkTools.m */; };
 		BC8364E626FD73BF00C9D59A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8364E526FD73BF00C9D59A /* OAuthViewController.m */; };
+		BCA1A3EB27004A63001B43E9 /* UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1A3EA27004A63001B43E9 /* UserAccount.m */; };
 		C4D74FBF34F7B2068AB1BBAC /* Pods_test106.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5FFECFAE303A4F64143F3 /* Pods_test106.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		BC83640726FC63B600C9D59A /* NetworkTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
 		BC8364E426FD73BF00C9D59A /* OAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		BC8364E526FD73BF00C9D59A /* OAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
+		BCA1A3E927004A63001B43E9 /* UserAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAccount.h; sourceTree = "<group>"; };
+		BCA1A3EA27004A63001B43E9 /* UserAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccount.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6F403426F32FFA0084B333 /* Tools */,
+				BCA1A3E827004A24001B43E9 /* Model */,
 				BC6F400D26F2F0940084B333 /* View */,
 			);
 			path = Classes;
@@ -227,6 +231,15 @@
 				BC8364E526FD73BF00C9D59A /* OAuthViewController.m */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		BCA1A3E827004A24001B43E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCA1A3E927004A63001B43E9 /* UserAccount.h */,
+				BCA1A3EA27004A63001B43E9 /* UserAccount.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BE7A343191D68634E21D8F90 /* Frameworks */ = {
@@ -362,6 +375,7 @@
 				BC6F400626F2E6710084B333 /* main.m in Sources */,
 				BC83640826FC63B600C9D59A /* NetworkTools.m in Sources */,
 				BC42757F26F48FFC00D3FD47 /* UIImageView+Extension.m in Sources */,
+				BCA1A3EB27004A63001B43E9 /* UserAccount.m in Sources */,
 				BC42757C26F48E1400D3FD47 /* UILabel+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 #import "OAuthViewController.h"
 #import "NetworkTools.h"
 #import <WebKit/WebKit.h>
+#import "UserAccount.h"
 
 @interface OAuthViewController ()<WKNavigationDelegate>
 @property (nonatomic,strong) WKWebView *webView;
@@ -37,7 +38,7 @@
 
 // 页面开始加载时调用
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-//    NSLog(@"--网址--->%@",navigationResponse.response);
+    //    NSLog(@"--网址--->%@",navigationResponse.response);
     
     if ([navigationResponse.response.URL.host.lowercaseString isEqual:@"www.baidu.com"]) {
         NSString *urlStr =[navigationResponse.response.URL absoluteString];
@@ -49,28 +50,37 @@
             NSRange rg = [urlStr rangeOfString:@"code="];
             self.code =[urlStr substringFromIndex:rg.location+rg.length];
             NSLog(@"授权%@",self.code);
-            [[NetworkTools alloc] loadAccessTokenCode:self.code WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
+            [[NetworkTools sharedTools] loadAccessTokenCode:self.code WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
                 if(error != nil){
                     NSLog(@"出错了");
                     return;
                 }
                 NSLog(@"-gg---->%@",result);
+                UserAccount *userAccount = [UserAccount provinceWithDictionary:result];
+                
+                [self loadUserInfo:userAccount];
             }];
         }
         decisionHandler(WKNavigationResponsePolicyCancel);
-        //        // 允许跳转
-        //        decisionHandler(WKNavigationResponsePolicyAllow);
         return;
     }else{
         decisionHandler(WKNavigationResponsePolicyAllow);
         return;
     }
-    
-    
 }
-//- (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKContextMenuElementInfo *)elementInfo{
-//    return NO;
-//}
+
+-(void)loadUserInfo:(UserAccount *)userAccount{
+    [[NetworkTools sharedTools] LoadUserInfo:userAccount.uid WithAccessToken:userAccount.access_token WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
+        if(error != nil){
+            NSLog(@"出错了");
+            return;
+        }
+        NSLog(@"-loadUserInfo---->%@",result);
+        userAccount.screen_name = result[@"screen_name"];
+        userAccount.avatar_large = result[@"avatar_large"];
+        NSLog(@"-userAccount---->%@",userAccount);
+    }];
+}
 
 -(WKWebView *) webView{
     if(!_webView){

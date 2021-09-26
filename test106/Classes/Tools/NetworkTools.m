@@ -32,7 +32,7 @@ static NSString * const redirectUri = @"http://www.baidu.com";
     dispatch_once(&onceToken, ^{
         NSURL *baseURL = [NSURL URLWithString:@""];
         tools = [[self alloc] initWithBaseURL:baseURL];
-        tools.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"test/json",@"text/javascript",@"text/html", nil];
+        tools.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"test/json",@"text/javascript",@"text/html",@"text/plain", nil];
     });
     return tools;
 }
@@ -69,6 +69,7 @@ static NSString * const redirectUri = @"http://www.baidu.com";
     NSURL *url = [NSURL URLWithString:str];
     return url;
 }
+
 -(void)loadAccessTokenCode:(NSString *)code WithFinished:(void (^)(id,NSError *))finished{
     NSString *url = @"https://api.weibo.com/oauth2/access_token";
     NSDictionary *dic = @{@"client_id":appKey,
@@ -78,5 +79,14 @@ static NSString * const redirectUri = @"http://www.baidu.com";
                           @"redirect_uri":redirectUri,
     };
     [[NetworkTools sharedTools] requset:POST URLString:url parameters:dic finished:finished];
+}
+
+-(void)LoadUserInfo:(NSString *)uid WithAccessToken:(NSString *)accessToken WithFinished:(void (^)(id,NSError *))finished{
+    NSString *url = @"https://api.weibo.com/2/users/show.json";
+    NSDictionary *dic = @{
+        @"uid":uid,
+        @"access_token":accessToken
+    };
+    [[NetworkTools sharedTools] requset:GET URLString:url parameters:dic finished:finished];
 }
 @end
