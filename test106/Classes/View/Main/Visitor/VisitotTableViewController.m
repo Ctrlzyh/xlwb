@@ -54,8 +54,12 @@
 
 -(void)clickRegister{
     NSLog(@"222");
-    [[NetworkTools alloc] requset:GET URLString:@"baidu.com" parameters:nil finished:^(id _Nonnull result, NSError * _Nonnull error) {
-            
+    [[NetworkTools sharedTools] requset:POST URLString:@"https://httpbin.org/post" parameters:@{@"name":@"zhangsan"} finished:^(id _Nonnull result, NSError * _Nonnull error) {
+        if(error != nil){
+            NSLog(@"出错了");
+            return;
+        }
+        NSLog(@"%@",result);
     }];
 }
 

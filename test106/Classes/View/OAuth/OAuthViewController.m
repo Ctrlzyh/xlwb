@@ -50,8 +50,11 @@
             self.code =[urlStr substringFromIndex:rg.location+rg.length];
             NSLog(@"授权%@",self.code);
             [[NetworkTools alloc] loadAccessTokenCode:self.code WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
-                NSLog(@"---result-->%@",result);
-                NSLog(@"---error-->%@",error);
+                if(error != nil){
+                    NSLog(@"出错了");
+                    return;
+                }
+                NSLog(@"-gg---->%@",result);
             }];
         }
         decisionHandler(WKNavigationResponsePolicyCancel);
