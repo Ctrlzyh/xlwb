@@ -9,6 +9,7 @@
 #import "VisitorView.h"
 #import "OAuthViewController.h"
 #import "NetworkTools.h"
+#import "UserAccontViewModel.h"
 
 @interface VisitotTableViewController ()<VisitorViewDelegate>
 @end
@@ -16,13 +17,14 @@
 @implementation VisitotTableViewController
 
 - (void)loadView {
-//    self.userLogin = YES;
+    self.userLogin = [self isLogin];
     if(self.userLogin){
         [super loadView];
     }else{
         self.visitorView = [[VisitorView alloc] initWithVisitor];
         _visitorView.delegate = self;
         self.view = self.visitorView;
+        [self setUI];
     }
 }
 
@@ -31,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUI];
+//    [self setUI];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -61,6 +63,13 @@
         }
         NSLog(@"%@",result);
     }];
+}
+
+-(BOOL)isLogin{
+    if([[UserAccontViewModel alloc] getUserAccount]){
+        return YES;
+    }
+    return false;
 }
 
 

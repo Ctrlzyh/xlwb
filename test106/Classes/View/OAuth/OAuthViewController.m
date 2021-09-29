@@ -79,6 +79,7 @@
         userAccount.screen_name = result[@"screen_name"];
         userAccount.avatar_large = result[@"avatar_large"];
         NSLog(@"-userAccount---->%@",userAccount);
+        [userAccount saveUserAccount];
     }];
 }
 

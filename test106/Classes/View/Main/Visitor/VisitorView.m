@@ -106,6 +106,7 @@
         make.top.equalTo(self.mas_top);
         make.bottom.equalTo(self.loginButton.mas_bottom);
     }];
+    
 }
 -(UIImageView *) iconView{
     if(!_iconView){

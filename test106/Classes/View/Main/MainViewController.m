@@ -21,12 +21,15 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tabBar addSubview:self.composedButton];
+   
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTabBarChild];
     [self setUI];
+    
+//    [self.tabBar setBarTintColor:[UIColor redColor]];
     // Do any additional setup after loading the view.
 }
 
@@ -36,7 +39,7 @@
 
 
 - (void)setUI {
-//    [self.composedButton sizeToFit];
+    [self.tabBar setBackgroundColor:[UIColor systemGray6Color]];
     NSUInteger count = self.childViewControllers.count;
     float w = self.tabBar.bounds.size.width / count - 1;
     self.composedButton.frame = CGRectInset(self.tabBar.bounds, 2*w, 0);

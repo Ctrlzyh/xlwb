@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserAccount : NSObject
+@interface UserAccount : NSObject<NSCoding>
 @property (nonatomic,copy) NSString *access_token;
 @property (nonatomic,assign) NSTimeInterval expires_in;
 @property (nonatomic,assign) NSDate* expiresDate;
@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 + (instancetype)provinceWithDictionary:(NSDictionary *)dict;
+
+- (void)saveUserAccount;
 
 @end
 

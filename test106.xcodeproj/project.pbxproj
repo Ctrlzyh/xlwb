@@ -24,6 +24,7 @@
 		BC83640826FC63B600C9D59A /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = BC83640726FC63B600C9D59A /* NetworkTools.m */; };
 		BC8364E626FD73BF00C9D59A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8364E526FD73BF00C9D59A /* OAuthViewController.m */; };
 		BCA1A3EB27004A63001B43E9 /* UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1A3EA27004A63001B43E9 /* UserAccount.m */; };
+		BCBF53C52702FA2C0026E747 /* UserAccontViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */; };
 		C4D74FBF34F7B2068AB1BBAC /* Pods_test106.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5FFECFAE303A4F64143F3 /* Pods_test106.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,8 @@
 		BC8364E526FD73BF00C9D59A /* OAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		BCA1A3E927004A63001B43E9 /* UserAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAccount.h; sourceTree = "<group>"; };
 		BCA1A3EA27004A63001B43E9 /* UserAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccount.m; sourceTree = "<group>"; };
+		BCBF53C32702FA2C0026E747 /* UserAccontViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAccontViewModel.h; sourceTree = "<group>"; };
+		BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccontViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,7 @@
 		BC6F400C26F2F0830084B333 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BCBF53C22702F9EF0026E747 /* ViewModel */,
 				BC6F403426F32FFA0084B333 /* Tools */,
 				BCA1A3E827004A24001B43E9 /* Model */,
 				BC6F400D26F2F0940084B333 /* View */,
@@ -240,6 +244,15 @@
 				BCA1A3EA27004A63001B43E9 /* UserAccount.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BCBF53C22702F9EF0026E747 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BCBF53C32702FA2C0026E747 /* UserAccontViewModel.h */,
+				BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BE7A343191D68634E21D8F90 /* Frameworks */ = {
@@ -365,6 +378,7 @@
 				BC8364E626FD73BF00C9D59A /* OAuthViewController.m in Sources */,
 				BC6F401526F2F1A50084B333 /* HomeTableViewController.m in Sources */,
 				BC6F403F26F333730084B333 /* UIButton+Extension.m in Sources */,
+				BCBF53C52702FA2C0026E747 /* UserAccontViewModel.m in Sources */,
 				BC6F401B26F2F1E90084B333 /* DiscoverTableViewController.m in Sources */,
 				BC6F401E26F2F1FB0084B333 /* MessageTableViewController.m in Sources */,
 				BC6F3FF526F2E6700084B333 /* AppDelegate.m in Sources */,
