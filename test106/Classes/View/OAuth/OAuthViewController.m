@@ -9,6 +9,7 @@
 #import "NetworkTools.h"
 #import <WebKit/WebKit.h>
 #import "UserAccount.h"
+#import "UserAccontViewModel.h"
 
 @interface OAuthViewController ()<WKNavigationDelegate>
 @property (nonatomic,strong) WKWebView *webView;
@@ -50,7 +51,7 @@
             NSRange rg = [urlStr rangeOfString:@"code="];
             self.code =[urlStr substringFromIndex:rg.location+rg.length];
             NSLog(@"授权%@",self.code);
-            [[NetworkTools sharedTools] loadAccessTokenCode:self.code WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
+            [[UserAccontViewModel alloc] loadAccessTokenCode:self.code WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
                 if(error != nil){
                     NSLog(@"出错了");
                     return;
@@ -70,7 +71,7 @@
 }
 
 -(void)loadUserInfo:(UserAccount *)userAccount{
-    [[NetworkTools sharedTools] LoadUserInfo:userAccount.uid WithAccessToken:userAccount.access_token WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
+    [[UserAccontViewModel alloc] LoadUserInfo:userAccount.uid WithAccessToken:userAccount.access_token WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
         if(error != nil){
             NSLog(@"出错了");
             return;
@@ -96,7 +97,7 @@
     self.view = self.webView;
     //    self.webView.de
     //https://api.weibo.com/oauth2/authorize?client_id=3308298737&redirect_uri=http://www.baidu.com
-    NSURL *url = [[NetworkTools alloc] oautURL];
+    NSURL *url = [[UserAccontViewModel alloc] oautURL];
     
     [self.webView loadRequest:[ NSURLRequest requestWithURL:url]];
 }

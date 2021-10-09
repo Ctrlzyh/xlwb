@@ -24,6 +24,8 @@
         [btn setTitle:title forState:UIControlStateNormal];
         [btn setTitleColor:color forState:UIControlStateNormal];
         [btn setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    [btn sizeToFit];
+
     return btn;
 }
 @end

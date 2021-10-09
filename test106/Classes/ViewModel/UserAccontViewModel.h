@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UserAccount.h"
+#import "NetWorkTools.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,copy) UserAccount *userAccount;
 
 - (UserAccount *)getUserAccount;
+-(NSURL *)avataURL;
+-(NSURL *)oautURL;
+-(void)loadAccessTokenCode:(NSString *)code WithFinished:(void (^)(id,NSError *))finished;
+-(void)LoadUserInfo:(NSString *)uid WithAccessToken:(NSString *)accessToken WithFinished:(void (^)(id,NSError *))finished;
 @end
 
 NS_ASSUME_NONNULL_END

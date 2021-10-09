@@ -6,6 +6,9 @@
 //
 
 #import "UserAccontViewModel.h"
+static NSString * const appKey = @"3308298737";
+static NSString * const appSecret = @"e82f1b1e8fbe8b280b5e7e82dff43822";
+static NSString * const redirectUri = @"http://www.baidu.com";
 
 @implementation UserAccontViewModel
 - (UserAccount *)getUserAccount{
@@ -26,4 +29,41 @@
     NSLog(@"--account---->%@",account);
     return account;
 }
+
+-(NSURL *)avataURL{
+    UserAccount *account = [self getUserAccount];
+    NSString *str = @"";
+    if(account){
+        str = account.avatar_large;
+    }
+    NSURL *url = [NSURL URLWithString:str];
+    return url;
+}
+
+-(NSURL *)oautURL{
+    NSString *str = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&response_type=%@&redirect_uri=%@",appKey,@"code",redirectUri];
+    NSURL *url = [NSURL URLWithString:str];
+    return url;
+}
+
+-(void)loadAccessTokenCode:(NSString *)code WithFinished:(void (^)(id,NSError *))finished{
+    NSString *url = @"https://api.weibo.com/oauth2/access_token";
+    NSDictionary *dic = @{@"client_id":appKey,
+                          @"client_secret":appSecret,
+                          @"grant_type":@"authorization_code",
+                          @"code":code,
+                          @"redirect_uri":redirectUri,
+    };
+    [[NetworkTools sharedTools] requset:POST URLString:url parameters:dic finished:finished];
+}
+
+-(void)LoadUserInfo:(NSString *)uid WithAccessToken:(NSString *)accessToken WithFinished:(void (^)(id,NSError *))finished{
+    NSString *url = @"https://api.weibo.com/2/users/show.json";
+    NSDictionary *dic = @{
+        @"uid":uid,
+        @"access_token":accessToken
+    };
+    [[NetworkTools sharedTools] requset:GET URLString:url parameters:dic finished:finished];
+}
+
 @end
