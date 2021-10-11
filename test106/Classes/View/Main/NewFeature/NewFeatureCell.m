@@ -43,6 +43,7 @@
 
 - (void)clickStratButton {
     NSLog(@"开始体验");
+    [[NSNotificationCenter defaultCenter] postNotificationName:WBSwitchRootViewControllerNotification object:nil];
 }
 
 - (void)buildUI {

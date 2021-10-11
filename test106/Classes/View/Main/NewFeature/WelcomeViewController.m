@@ -44,11 +44,9 @@
         [UIView animateWithDuration:0.8 animations:^{
             self.welcomeLabel.alpha = 1;
         } completion:^(BOOL finished) {
-            
+               [[NSNotificationCenter defaultCenter] postNotificationName:WBSwitchRootViewControllerNotification object:nil];
         }];
     }];
-    
-    
 }
 
 - (UIImageView *)backImgView{

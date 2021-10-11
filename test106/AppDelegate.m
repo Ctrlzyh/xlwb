@@ -9,12 +9,28 @@
 #import "MainViewController.h"
 #import "NewFeatureViewController.h"
 #import "WelcomeViewController.h"
+#import "UserAccontViewModel.h"
 
 @interface AppDelegate ()
+@property (nonatomic,strong) UIViewController *defaultRootViewController;
 @end
 
 @implementation AppDelegate
-
+//-(void)setImageIndex:(NSInteger)imageIndex{
+//    _imageIndex = imageIndex;
+//    NSString *imgName = [NSString stringWithFormat:@"new_feature_%ld",_imageIndex+1];
+//    _iconView.image = [UIImage imageNamed: imgName];
+//    self.startButton.hidden = YES;
+//}
+-(UIViewController *)setDefaultRootViewController{
+    if([[UserAccontViewModel alloc] getUserAccount]){
+        return [self isNewVersion] ?
+        [[NewFeatureViewController alloc] init] :
+        [[WelcomeViewController alloc] init];
+    } else {
+        return [[MainViewController alloc] init];
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -22,14 +38,24 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    MainViewController *controller = [[MainViewController alloc] init];
-    WelcomeViewController *controller = [[WelcomeViewController alloc] init];
-    [self.window setRootViewController:controller];
+//    WelcomeViewController *controller = [[WelcomeViewController alloc] init];
+    [self.window setRootViewController:self.setDefaultRootViewController];
 //    controller.view.backgroundColor = [UIColor whiteColor];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self isNewVersion];
+    [[NSNotificationCenter defaultCenter] addObserverForName:WBSwitchRootViewControllerNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        UIViewController *vc = note.object != nil ?
+        [[WelcomeViewController alloc] init]:
+        [[MainViewController alloc] init];
+        self.window.rootViewController = vc;
+    }];
+
     return YES;
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:WBSwitchRootViewControllerNotification object:nil];
 }
 
 -(void)setupAppearance{

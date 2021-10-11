@@ -60,6 +60,11 @@
                 UserAccount *userAccount = [UserAccount provinceWithDictionary:result];
                 
                 [self loadUserInfo:userAccount];
+                
+                [self dismissViewControllerAnimated:NO completion:^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:WBSwitchRootViewControllerNotification object:@"welcome"];
+                }];
+               
             }];
         }
         decisionHandler(WKNavigationResponsePolicyCancel);
