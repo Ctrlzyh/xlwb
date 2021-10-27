@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "UserAccount.h"
 #import "UserAccontViewModel.h"
+#import "SVProgressHUD.h"
 
 @interface OAuthViewController ()<WKNavigationDelegate>
 @property (nonatomic,strong) WKWebView *webView;
@@ -32,6 +33,7 @@
 }
 
 -(void)close{
+    [SVProgressHUD dismiss];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
@@ -46,6 +48,7 @@
         NSLog(@"如果百度%@",urlStr);
         if([[navigationResponse.response.URL absoluteString] containsString:@"error"]){
             NSLog(@"取消授权");
+            [self close];
         }else{
             
             NSRange rg = [urlStr rangeOfString:@"code="];
@@ -54,6 +57,11 @@
             [[UserAccontViewModel alloc] loadAccessTokenCode:self.code WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
                 if(error != nil){
                     NSLog(@"出错了");
+                    [SVProgressHUD showInfoWithStatus:@"网络不给力"];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                        [self close];
+                    });
                     return;
                 }
                 NSLog(@"-gg---->%@",result);
@@ -105,6 +113,14 @@
     NSURL *url = [[UserAccontViewModel alloc] oautURL];
     
     [self.webView loadRequest:[ NSURLRequest requestWithURL:url]];
+}
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    [SVProgressHUD show];
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    [SVProgressHUD dismiss];
 }
 
 @end

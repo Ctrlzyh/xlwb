@@ -14,4 +14,7 @@
     [imgView sizeToFit];
     return  imgView;
 }
++(instancetype) initWithImaName:(NSString *)imgName{
+    return [[self alloc] imgViewWithImgName:imgName];
+}
 @end

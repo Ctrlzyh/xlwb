@@ -66,4 +66,15 @@ static NSString * const redirectUri = @"http://www.baidu.com";
     [[NetworkTools sharedTools] requset:GET URLString:url parameters:dic finished:finished];
 }
 
+
+- (void) loadStatus:(void (^)(id,NSError *))finished{
+    UserAccount *account = [self getUserAccount];
+    NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    NSDictionary *dic = @{
+        @"access_token":account.access_token
+    };
+    [[NetworkTools sharedTools] requset:GET URLString:url parameters:dic finished:finished];
+}
+
+
 @end

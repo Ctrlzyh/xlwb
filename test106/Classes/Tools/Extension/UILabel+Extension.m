@@ -17,4 +17,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     return label;
 }
++(instancetype)initWithTitle:(NSString *)title WithFontSize:(CGFloat)fontSize WithTitleColor:(UIColor *)titleColor{
+    return [[self alloc] labelWithTitle:title WithFontSize:fontSize WithTitleColor:titleColor];
+}
 @end

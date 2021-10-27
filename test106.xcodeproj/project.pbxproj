@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		BC42757C26F48E1400D3FD47 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC42757B26F48E1400D3FD47 /* UILabel+Extension.m */; };
 		BC42757F26F48FFC00D3FD47 /* UIImageView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC42757E26F48FFC00D3FD47 /* UIImageView+Extension.m */; };
+		BC49F2E5271429210094DD7C /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = BC49F2E4271429210094DD7C /* Status.m */; };
+		BC4BBFFA2728FA100097D62A /* StatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4BBFF92728FA100097D62A /* StatusViewModel.m */; };
+		BC4BBFFE2729236A0097D62A /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4BBFFD2729236A0097D62A /* StatusCell.m */; };
+		BC4BC001272923AA0097D62A /* StatusCellTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4BC000272923AA0097D62A /* StatusCellTopView.m */; };
+		BC4BC004272923C80097D62A /* StatusCellBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4BC003272923C80097D62A /* StatusCellBottomView.m */; };
+		BC582AAB272682DC00EBBF9E /* StatusListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC582AAA272682DC00EBBF9E /* StatusListViewModel.m */; };
+		BC582AAE2726AB4F00EBBF9E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC582AAD2726AB4F00EBBF9E /* User.m */; };
 		BC6B6D122710317800571552 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6B6D112710317800571552 /* WelcomeViewController.m */; };
 		BC6F3FF526F2E6700084B333 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F3FF426F2E6700084B333 /* AppDelegate.m */; };
 		BC6F400026F2E6710084B333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6F3FFF26F2E6710084B333 /* Assets.xcassets */; };
@@ -40,6 +47,20 @@
 		BC42757D26F48FFC00D3FD47 /* UIImageView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Extension.h"; sourceTree = "<group>"; };
 		BC42757E26F48FFC00D3FD47 /* UIImageView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Extension.m"; sourceTree = "<group>"; };
 		BC42758126F5C4B300D3FD47 /* Common.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.pch; sourceTree = "<group>"; };
+		BC49F2E3271429210094DD7C /* Status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		BC49F2E4271429210094DD7C /* Status.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
+		BC4BBFF82728FA100097D62A /* StatusViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusViewModel.h; sourceTree = "<group>"; };
+		BC4BBFF92728FA100097D62A /* StatusViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusViewModel.m; sourceTree = "<group>"; };
+		BC4BBFFC2729236A0097D62A /* StatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		BC4BBFFD2729236A0097D62A /* StatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		BC4BBFFF272923AA0097D62A /* StatusCellTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusCellTopView.h; sourceTree = "<group>"; };
+		BC4BC000272923AA0097D62A /* StatusCellTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCellTopView.m; sourceTree = "<group>"; };
+		BC4BC002272923C80097D62A /* StatusCellBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusCellBottomView.h; sourceTree = "<group>"; };
+		BC4BC003272923C80097D62A /* StatusCellBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCellBottomView.m; sourceTree = "<group>"; };
+		BC582AA9272682DC00EBBF9E /* StatusListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusListViewModel.h; sourceTree = "<group>"; };
+		BC582AAA272682DC00EBBF9E /* StatusListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusListViewModel.m; sourceTree = "<group>"; };
+		BC582AAC2726AB4F00EBBF9E /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		BC582AAD2726AB4F00EBBF9E /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		BC6B6D102710317800571552 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		BC6B6D112710317800571552 /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		BC6F3FF026F2E6700084B333 /* test106.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test106.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +119,19 @@
 				4F21657A31F71749A2AA5597 /* Pods-test106.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BC4BBFFB272923250097D62A /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				BC4BBFFC2729236A0097D62A /* StatusCell.h */,
+				BC4BBFFD2729236A0097D62A /* StatusCell.m */,
+				BC4BBFFF272923AA0097D62A /* StatusCellTopView.h */,
+				BC4BC000272923AA0097D62A /* StatusCellTopView.m */,
+				BC4BC002272923C80097D62A /* StatusCellBottomView.h */,
+				BC4BC003272923C80097D62A /* StatusCellBottomView.m */,
+			);
+			path = StatusCell;
 			sourceTree = "<group>";
 		};
 		BC6F3FE726F2E6700084B333 = {
@@ -170,6 +204,7 @@
 		BC6F400F26F2F12A0084B333 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BC4BBFFB272923250097D62A /* StatusCell */,
 				BC6F401326F2F1A50084B333 /* HomeTableViewController.h */,
 				BC6F401426F2F1A50084B333 /* HomeTableViewController.m */,
 			);
@@ -252,6 +287,10 @@
 			children = (
 				BCA1A3E927004A63001B43E9 /* UserAccount.h */,
 				BCA1A3EA27004A63001B43E9 /* UserAccount.m */,
+				BC49F2E3271429210094DD7C /* Status.h */,
+				BC49F2E4271429210094DD7C /* Status.m */,
+				BC582AAC2726AB4F00EBBF9E /* User.h */,
+				BC582AAD2726AB4F00EBBF9E /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +300,10 @@
 			children = (
 				BCBF53C32702FA2C0026E747 /* UserAccontViewModel.h */,
 				BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */,
+				BC582AA9272682DC00EBBF9E /* StatusListViewModel.h */,
+				BC582AAA272682DC00EBBF9E /* StatusListViewModel.m */,
+				BC4BBFF82728FA100097D62A /* StatusViewModel.h */,
+				BC4BBFF92728FA100097D62A /* StatusViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -400,15 +443,22 @@
 			files = (
 				BC8364E626FD73BF00C9D59A /* OAuthViewController.m in Sources */,
 				BC6F401526F2F1A50084B333 /* HomeTableViewController.m in Sources */,
+				BC4BC001272923AA0097D62A /* StatusCellTopView.m in Sources */,
 				BC6F403F26F333730084B333 /* UIButton+Extension.m in Sources */,
+				BC4BBFFA2728FA100097D62A /* StatusViewModel.m in Sources */,
+				BC49F2E5271429210094DD7C /* Status.m in Sources */,
 				BCBF53C52702FA2C0026E747 /* UserAccontViewModel.m in Sources */,
 				BC6B6D122710317800571552 /* WelcomeViewController.m in Sources */,
+				BC582AAE2726AB4F00EBBF9E /* User.m in Sources */,
 				BC6F401B26F2F1E90084B333 /* DiscoverTableViewController.m in Sources */,
 				BC6F401E26F2F1FB0084B333 /* MessageTableViewController.m in Sources */,
+				BC582AAB272682DC00EBBF9E /* StatusListViewModel.m in Sources */,
+				BC4BBFFE2729236A0097D62A /* StatusCell.m in Sources */,
 				BC6F3FF526F2E6700084B333 /* AppDelegate.m in Sources */,
 				BC6F404326F33F030084B333 /* VisitotTableViewController.m in Sources */,
 				BC6F403326F2F4770084B333 /* MainViewController.m in Sources */,
 				BC6F404626F340C00084B333 /* VisitorView.m in Sources */,
+				BC4BC004272923C80097D62A /* StatusCellBottomView.m in Sources */,
 				BC6F401826F2F1D20084B333 /* ProfileTableViewController.m in Sources */,
 				BC6F400626F2E6710084B333 /* main.m in Sources */,
 				BC83640826FC63B600C9D59A /* NetworkTools.m in Sources */,

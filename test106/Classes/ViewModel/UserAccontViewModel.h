@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSURL *)oautURL;
 -(void)loadAccessTokenCode:(NSString *)code WithFinished:(void (^)(id,NSError *))finished;
 -(void)LoadUserInfo:(NSString *)uid WithAccessToken:(NSString *)accessToken WithFinished:(void (^)(id,NSError *))finished;
+
+- (void) loadStatus:(void (^)(id,NSError *))finished;
 @end
 
 NS_ASSUME_NONNULL_END

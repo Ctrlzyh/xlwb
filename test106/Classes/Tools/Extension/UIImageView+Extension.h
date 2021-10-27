@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImageView (Extension)
 -(instancetype)imgViewWithImgName:(NSString *)imgName;
++(instancetype) initWithImaName:(NSString *)imgName;
 @end
 
 NS_ASSUME_NONNULL_END
