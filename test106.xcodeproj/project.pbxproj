@@ -33,7 +33,6 @@
 		BC8364E626FD73BF00C9D59A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8364E526FD73BF00C9D59A /* OAuthViewController.m */; };
 		BC8C3EB0272A77D700B99773 /* StatusPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8C3EAF272A77D700B99773 /* StatusPictureView.m */; };
 		BCA1A3EB27004A63001B43E9 /* UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1A3EA27004A63001B43E9 /* UserAccount.m */; };
-		BCB37BA027438C0D00E7D215 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BCB37B9F27438C0D00E7D215 /* Podfile */; };
 		BCBF53C52702FA2C0026E747 /* UserAccontViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */; };
 		BCBF53C9270449D20026E747 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBF53C8270449D20026E747 /* NewFeatureViewController.m */; };
 		BCBF53CC27045E400026E747 /* NewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBF53CB27045E400026E747 /* NewFeatureCell.m */; };
@@ -96,7 +95,6 @@
 		BC8C3EAF272A77D700B99773 /* StatusPictureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusPictureView.m; sourceTree = "<group>"; };
 		BCA1A3E927004A63001B43E9 /* UserAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAccount.h; sourceTree = "<group>"; };
 		BCA1A3EA27004A63001B43E9 /* UserAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccount.m; sourceTree = "<group>"; };
-		BCB37B9F27438C0D00E7D215 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		BCBF53C32702FA2C0026E747 /* UserAccontViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAccontViewModel.h; sourceTree = "<group>"; };
 		BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccontViewModel.m; sourceTree = "<group>"; };
 		BCBF53C7270449D20026E747 /* NewFeatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				BBBDCE303177D9495F919A93 /* Pods-test106.debug.xcconfig */,
-				BCB37B9F27438C0D00E7D215 /* Podfile */,
 				4F21657A31F71749A2AA5597 /* Pods-test106.release.xcconfig */,
 			);
 			path = Pods;
@@ -395,7 +392,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCB37BA027438C0D00E7D215 /* Podfile in Resources */,
 				BC6F400326F2E6710084B333 /* LaunchScreen.storyboard in Resources */,
 				BC6F400026F2E6710084B333 /* Assets.xcassets in Resources */,
 			);
@@ -614,6 +610,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRQ3MA22VC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/test106/Classes/Tools/Common.pch";
 				INFOPLIST_FILE = test106/Info.plist;
@@ -636,6 +633,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRQ3MA22VC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/test106/Classes/Tools/Common.pch";
 				INFOPLIST_FILE = test106/Info.plist;
