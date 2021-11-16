@@ -19,7 +19,7 @@
     return btn;
 }
 
-- (instancetype)buttonWithTitle:(NSString *)title WithTitleColor:(UIColor *)color WithImgName:(NSString *)imgName{
+- (instancetype)buttonWithTitle:(NSString *)title WithTitleColor:(UIColor *)color WithBackImgName:(NSString *)imgName{
     UIButton *btn = [[UIButton alloc] init];
         [btn setTitle:title forState:UIControlStateNormal];
         [btn setTitleColor:color forState:UIControlStateNormal];
@@ -27,5 +27,20 @@
     [btn sizeToFit];
 
     return btn;
+}
+
+- (instancetype)buttonWithTitle:(NSString *)title WithFontSize:(CGFloat)fontSize WithTitleColor:(UIColor *)color WithImgName:(NSString *)imgName{
+    UIButton *btn = [[UIButton alloc] init];
+        [btn setTitle:title forState:UIControlStateNormal];
+        [btn setTitleColor:color forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+    [btn sizeToFit];
+
+    return btn;
+}
+
++(instancetype)buttonWithTitle:(NSString *)title WithFontSize:(CGFloat)fontSize WithTitleColor:(UIColor *)color WithImgName:(NSString *)imgName{
+    return [[self alloc] buttonWithTitle:title WithFontSize:fontSize WithTitleColor:color WithImgName:imgName];
 }
 @end

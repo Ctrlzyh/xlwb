@@ -52,7 +52,7 @@
     _iconView.frame = self.contentView.bounds;
     _iconView.backgroundColor = [UIColor yellowColor];
     
-    _startButton = [[UIButton alloc] buttonWithTitle:@"开始体验" WithTitleColor:[UIColor whiteColor] WithImgName:@"new_feature_finish_button"];
+    _startButton = [[UIButton alloc] buttonWithTitle:@"开始体验" WithTitleColor:[UIColor whiteColor] WithBackImgName:@"new_feature_finish_button"];
     [self.contentView addSubview:_startButton];
     [_startButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView.mas_centerX);

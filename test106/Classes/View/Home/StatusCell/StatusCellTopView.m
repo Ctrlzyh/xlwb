@@ -42,7 +42,11 @@ static CGFloat StatusCellIconWidth = 35.0;
 }
 
 - (void)setupUI {
-    self.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    self.backgroundColor = [UIColor whiteColor];
+    
+    UIView *stepView = [[UIView alloc] init];
+    stepView.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:stepView];
     [self addSubview:self.iconView];
     [self addSubview:self.nameLabel];
     [self addSubview:self.memberIconView];
@@ -50,8 +54,14 @@ static CGFloat StatusCellIconWidth = 35.0;
     [self addSubview:self.timeLabel];
     [self addSubview:self.sourceLabel];
     
+    [stepView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.mas_top);
+            make.left.equalTo(self.mas_left);
+            make.right.equalTo(self.mas_right);
+            make.height.equalTo(@(StatusCellMargin));
+    }];
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(StatusCellMargin);
+        make.top.equalTo(stepView.mas_bottom).offset(StatusCellMargin);
         make.left.equalTo(self.mas_left).offset(StatusCellMargin);
         make.width.equalTo(@(StatusCellIconWidth));
         make.height.equalTo(@(StatusCellIconWidth));

@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIImage *userDefaultIconView;
 @property (nonatomic,strong) UIImage *userMemberImage;
 @property (nonatomic,strong) UIImage *userVipImage;
+@property (nonatomic,strong) NSArray *thumbnailUrls;
+@property (nonatomic) CGFloat rowHeight;
 + (instancetype)statusWith:(Status *)status;
 @end
 

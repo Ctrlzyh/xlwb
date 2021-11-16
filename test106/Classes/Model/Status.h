@@ -16,9 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *created_at;
 @property (nonatomic,copy) NSString *source;
 @property (nonatomic,strong) User *user;
+@property (nonatomic,copy) NSArray *pic_urls;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 + (instancetype)statusWithDictionary:(NSDictionary *)dict;
+- (NSString *)description;
 @end
 
 NS_ASSUME_NONNULL_END

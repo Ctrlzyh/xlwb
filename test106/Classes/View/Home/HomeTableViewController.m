@@ -36,8 +36,10 @@ static NSString * const StatusCellNormalId = @"StatusCellNormalId";
 
 - (void)prepareTableView {
     [self.tableView registerClass:StatusCell.self forCellReuseIdentifier:StatusCellNormalId];
-    self.tableView.estimatedRowHeight = 200;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 400;
+//    self.tableView.rowHeight = 400;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 -(StatusListViewModel *) listViewModel{
@@ -70,5 +72,14 @@ static NSString * const StatusCellNormalId = @"StatusCellNormalId";
 //    cell.textLabel.text = cellModel.user.screen_name;
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    StatusViewModel *statusViewModel = self.listViewModel.statusList[indexPath.row];
+//    StatusCell *cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusCellNormalId];
+//    return [cell rowHeight:statusViewModel];
+    NSLog(@"-----%f",statusViewModel.rowHeight);
+    return statusViewModel.rowHeight;
+    
 }
 @end

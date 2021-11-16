@@ -10,6 +10,7 @@
 #import "StatusCellBottomView.h"
 #import "UILabel+Extension.h"
 #import <Masonry/Masonry.h>
+#import "StatusPictureView.h"
 
 static CGFloat StatusCellMargin = 12.0;
 static CGFloat StatusCellIconWidth = 35.0;
@@ -18,12 +19,31 @@ static CGFloat StatusCellIconWidth = 35.0;
 @property (nonatomic,strong) StatusCellTopView *topView;
 @property (nonatomic,strong) UILabel *contentLabel;
 @property (nonatomic,strong) StatusCellBottomView *bottomView;
+@property (nonatomic,strong) StatusPictureView *pictureView;
 @end
 
 @implementation StatusCell
 -(void)setViewModel:(StatusViewModel *)viewModel{
     self.topView.viewModel = viewModel;
     self.contentLabel.text = viewModel.status.text;
+    
+    
+    
+    
+    self.pictureView.viewModel = viewModel;
+    [self.pictureView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(self.pictureView.bounds.size.height));
+        make.width.equalTo(@(self.pictureView.bounds.size.width));
+        CGFloat offset = viewModel.thumbnailUrls.count>0?StatusCellMargin:0;
+        make.top.equalTo(self.contentLabel.mas_bottom).offset(offset);
+    }];
+}
+
+-(CGFloat) rowHeight:(StatusViewModel *)vm{
+    self.viewModel = vm;
+    [self.contentView layoutIfNeeded];
+    
+    return CGRectGetMaxY(self.bottomView.frame);
 }
 
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -31,6 +51,7 @@ static CGFloat StatusCellIconWidth = 35.0;
     if(self){
         [self setupUI];
     }
+    self.selectionStyle =UITableViewCellSelectionStyleNone;
     return self;
 }
 
@@ -44,19 +65,33 @@ static CGFloat StatusCellIconWidth = 35.0;
 - (void)setupUI {
     [self.contentView addSubview:self.topView];
     [self.contentView addSubview:self.contentLabel];
-//    self.contentView
+    [self.contentView addSubview:self.pictureView];
+    [self.contentView addSubview:self.bottomView];
     
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.contentView.mas_top);
             make.left.equalTo(self.contentView.mas_left);
             make.right.equalTo(self.contentView.mas_right);
-            make.height.equalTo(@(StatusCellMargin+StatusCellIconWidth));
+            make.height.equalTo(@(2 * StatusCellMargin + StatusCellIconWidth));
     }];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.topView.mas_bottom).offset(StatusCellMargin);
             make.left.equalTo(self.contentView.mas_left).offset(StatusCellMargin);
             make.width.lessThanOrEqualTo(@([UIScreen mainScreen].bounds.size.width - 2 * StatusCellMargin));
-            make.bottom.equalTo(self.contentView.mas_bottom).offset(-12);
+    }];
+    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.contentLabel.mas_bottom).offset(StatusCellMargin);
+            make.left.equalTo(self.contentLabel.mas_left);
+            make.width.equalTo(@300);
+            make.height.equalTo(@90);
+    }];
+    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.pictureView
+                             .mas_bottom).offset(StatusCellMargin);
+            make.left.equalTo(self.contentView.mas_left);
+            make.right.equalTo(self.contentView.mas_right);
+            make.height.equalTo(@(44));
+//            make.bottom.equalTo(self.contentView.mas_bottom);
     }];
 }
 
@@ -87,15 +122,12 @@ static CGFloat StatusCellIconWidth = 35.0;
     return _bottomView;
 }
 
-//- (void)awakeFromNib {
-//    [super awakeFromNib];
-//    // Initialization code
-//}
-//
-//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
-//
-//    // Configure the view for the selected state
-//}
+-(StatusPictureView *)pictureView{
+    if(!_pictureView){
+        _pictureView = [[StatusPictureView alloc] init];
+    }
+    return _pictureView;
+}
+
 
 @end

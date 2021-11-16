@@ -131,7 +131,7 @@
 
 -(UIButton *)registerButton{
     if(!_registerButton){
-        _registerButton = [[UIButton alloc] buttonWithTitle:@"注册" WithTitleColor:[UIColor orangeColor] WithImgName:@"common_button_white_disable"];
+        _registerButton = [[UIButton alloc] buttonWithTitle:@"注册" WithTitleColor:[UIColor orangeColor] WithBackImgName:@"common_button_white_disable"];
     }
     [_registerButton addTarget:self action:@selector(Register) forControlEvents:UIControlEventTouchUpInside];
     return _registerButton;
@@ -140,7 +140,7 @@
 -(UIButton *)loginButton{
 //    [UIButton alloc] button
     if(!_loginButton){
-        _loginButton = [[UIButton alloc] buttonWithTitle:@"登录" WithTitleColor:[UIColor darkGrayColor] WithImgName:@"common_button_white_disable"];
+        _loginButton = [[UIButton alloc] buttonWithTitle:@"登录" WithTitleColor:[UIColor darkGrayColor] WithBackImgName:@"common_button_white_disable"];
     }
     [_loginButton addTarget:self action:@selector(Login) forControlEvents:UIControlEventTouchUpInside];
     return _loginButton;

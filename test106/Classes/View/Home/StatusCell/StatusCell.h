@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatusCell : UITableViewCell
 @property (nonatomic,strong) StatusViewModel *viewModel;
+-(CGFloat) rowHeight:(StatusViewModel *)vm;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -6,13 +6,28 @@
 //
 
 #import "StatusViewModel.h"
+#import "StatusCell.h"
 
+static NSString * const StatusCellNormalId = @"StatusCellNormalId";
 
 @implementation StatusViewModel
 - (instancetype)initWith:(Status *)status
 {
     if (self = [super init]) {
         self.status = status;
+    }
+    
+    if(self.status.pic_urls.count>=0){
+        if(!_thumbnailUrls){
+            _thumbnailUrls = NSArray.new;
+        }
+        NSMutableArray *urlList = [NSMutableArray array];
+        for(NSDictionary *dict in self.status.pic_urls) {
+            NSURL *url = [NSURL URLWithString: dict[@"thumbnail_pic"]];
+            [urlList addObject:url];
+        }
+        self.thumbnailUrls = urlList;
+        
     }
     return self;
 }
@@ -50,6 +65,14 @@
         default:
             return nil;
     }
+}
+- (CGFloat)rowHeight{
+    StatusCell *cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusCellNormalId];
+    return [cell rowHeight:self];
+}
+
+- (NSString *)description{
+    return self.status.description;
 }
 
 @end

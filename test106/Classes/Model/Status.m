@@ -38,8 +38,9 @@
 }
 
 - (NSString *)description{
-    NSArray *keys = @[@"id",@"text",@"created_at",@"source",@"user"];
+    NSArray *keys = @[@"id",@"text",@"created_at",@"source",@"user",@"pic_urls"];
     return [self dictionaryWithValuesForKeys:keys].description;
 }
+
 
 @end
