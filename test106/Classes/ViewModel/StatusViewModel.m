@@ -7,8 +7,10 @@
 
 #import "StatusViewModel.h"
 #import "StatusCell.h"
+#import "StatusRetweetedCell.h"
 
 static NSString * const StatusCellNormalId = @"StatusCellNormalId";
+static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
 
 @implementation StatusViewModel
 - (instancetype)initWith:(Status *)status
@@ -16,13 +18,13 @@ static NSString * const StatusCellNormalId = @"StatusCellNormalId";
     if (self = [super init]) {
         self.status = status;
     }
-    
-    if(self.status.pic_urls.count>=0){
+    NSArray *urls = self.status.retweeted_status.pic_urls ? self.status.retweeted_status.pic_urls : self.status.pic_urls;
+    if(urls>=0){
         if(!_thumbnailUrls){
             _thumbnailUrls = NSArray.new;
         }
         NSMutableArray *urlList = [NSMutableArray array];
-        for(NSDictionary *dict in self.status.pic_urls) {
+        for(NSDictionary *dict in urls) {
             NSURL *url = [NSURL URLWithString: dict[@"thumbnail_pic"]];
             [urlList addObject:url];
         }
@@ -67,7 +69,7 @@ static NSString * const StatusCellNormalId = @"StatusCellNormalId";
     }
 }
 - (CGFloat)rowHeight{
-    StatusCell *cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusCellNormalId];
+    StatusRetweetedCell *cell = [[StatusRetweetedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusRetweetedCellId];
     return [cell rowHeight:self];
 }
 

@@ -39,7 +39,7 @@
 
 
 - (void)setUI {
-    [self.tabBar setBackgroundColor:[UIColor systemGray6Color]];
+    [self.tabBar setBackgroundColor:[UIColor redColor]];
     NSUInteger count = self.childViewControllers.count;
     float w = self.tabBar.bounds.size.width / count - 1;
     self.composedButton.frame = CGRectInset(self.tabBar.bounds, 2*w, 0);

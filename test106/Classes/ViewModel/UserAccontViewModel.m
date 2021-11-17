@@ -7,7 +7,7 @@
 
 #import "UserAccontViewModel.h"
 static NSString * const appKey = @"3308298737";
-static NSString * const appSecret = @"e82f1b1e8fbe8b280b5e7e82dff43822";
+static NSString * const appSecret = @"df1d3d0c5d317453e9f13719873aeee9";
 static NSString * const redirectUri = @"http://www.baidu.com";
 
 @implementation UserAccontViewModel

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *source;
 @property (nonatomic,strong) User *user;
 @property (nonatomic,copy) NSArray *pic_urls;
+@property (nonatomic,strong) Status *retweeted_status;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 + (instancetype)statusWithDictionary:(NSDictionary *)dict;

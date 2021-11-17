@@ -16,6 +16,7 @@
 #import "StatusCell/StatusCell.h"
 
 static NSString * const StatusCellNormalId = @"StatusCellNormalId";
+static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
 
 @interface HomeTableViewController ()
 @property (nonatomic,strong) NSMutableArray *dataList;
@@ -35,7 +36,7 @@ static NSString * const StatusCellNormalId = @"StatusCellNormalId";
 }
 
 - (void)prepareTableView {
-    [self.tableView registerClass:StatusCell.self forCellReuseIdentifier:StatusCellNormalId];
+    [self.tableView registerClass:StatusCell.self forCellReuseIdentifier:StatusRetweetedCellId];
     self.tableView.estimatedRowHeight = 400;
 //    self.tableView.rowHeight = 400;
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -64,7 +65,7 @@ static NSString * const StatusCellNormalId = @"StatusCellNormalId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:StatusCellNormalId forIndexPath:indexPath];
+    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:StatusRetweetedCellId forIndexPath:indexPath];
     StatusViewModel *statusViewModel = self.listViewModel.statusList[indexPath.row];
 //    Status *cellModel = statusViewModel.status;
     cell.viewModel = statusViewModel;

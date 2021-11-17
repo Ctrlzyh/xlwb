@@ -41,22 +41,24 @@
 
 // 页面开始加载时调用
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-    //    NSLog(@"--网址--->%@",navigationResponse.response);
+        NSLog(@"--网址--->%@",navigationResponse.response);
+    NSLog(@"--网址222--->%@",navigationResponse.response.URL.host.lowercaseString);
     
-    if ([navigationResponse.response.URL.host.lowercaseString isEqual:@"www.baidu.com"]) {
+    if ([navigationResponse.response.URL.host.lowercaseString isEqual:@"m.baidu.com"]) {
         NSString *urlStr =[navigationResponse.response.URL absoluteString];
         NSLog(@"如果百度%@",urlStr);
         if([[navigationResponse.response.URL absoluteString] containsString:@"error"]){
             NSLog(@"取消授权");
             [self close];
         }else{
-            
-            NSRange rg = [urlStr rangeOfString:@"code="];
-            self.code =[urlStr substringFromIndex:rg.location+rg.length];
+            NSString *string = urlStr;
+            NSArray *array = [string componentsSeparatedByString:@"&"];
+            NSRange rg = [array[0] rangeOfString:@"code="];
+            self.code =[array[0] substringFromIndex:rg.location+rg.length];
             NSLog(@"授权%@",self.code);
             [[UserAccontViewModel alloc] loadAccessTokenCode:self.code WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
                 if(error != nil){
-                    NSLog(@"出错了");
+                    NSLog(@"出错了%@",error);
                     [SVProgressHUD showInfoWithStatus:@"网络不给力"];
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -86,7 +88,7 @@
 -(void)loadUserInfo:(UserAccount *)userAccount{
     [[UserAccontViewModel alloc] LoadUserInfo:userAccount.uid WithAccessToken:userAccount.access_token WithFinished:^(id _Nonnull result, NSError * _Nonnull error) {
         if(error != nil){
-            NSLog(@"出错了");
+            NSLog(@"出错了%@",error);
             return;
         }
         NSLog(@"-loadUserInfo---->%@",result);

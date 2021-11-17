@@ -24,8 +24,17 @@
         }
         return;
     }
+    
+    if([key isEqual:@"retweeted_status"]){
+        if([value isKindOfClass:[NSDictionary class]]){
+            self.retweeted_status  = [Status statusWithDictionary:value];
+        }
+        return;
+    }
+    
     [super setValue:value forKey:key];
     
+
 }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key{
