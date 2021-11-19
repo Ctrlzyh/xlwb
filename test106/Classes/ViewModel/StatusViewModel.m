@@ -8,6 +8,7 @@
 #import "StatusViewModel.h"
 #import "StatusCell.h"
 #import "StatusRetweetedCell.h"
+#import "StatusNormalCell.h"
 
 static NSString * const StatusCellNormalId = @"StatusCellNormalId";
 static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
@@ -29,7 +30,6 @@ static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
             [urlList addObject:url];
         }
         self.thumbnailUrls = urlList;
-        
     }
     return self;
 }
@@ -68,13 +68,34 @@ static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
             return nil;
     }
 }
+
+- (NSString *)cellId{
+    return self.status.retweeted_status != nil ? StatusRetweetedCellId : StatusCellNormalId;
+}
+
 - (CGFloat)rowHeight{
-    StatusRetweetedCell *cell = [[StatusRetweetedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusRetweetedCellId];
-    return [cell rowHeight:self];
+    if (self.status.retweeted_status != nil){
+        StatusRetweetedCell *cell = [[StatusRetweetedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusRetweetedCellId];
+        return [cell rowHeight:self];
+    } else {
+        StatusNormalCell *cell = [[StatusNormalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusCellNormalId];
+        return [cell rowHeight:self];
+    }
 }
 
 - (NSString *)description{
     return self.status.description;
+}
+
+- (NSString *)retweetedText{
+    NSString *string = @"";
+    if (self.status.retweeted_status){
+        string = [string stringByAppendingFormat:@"%@,%@",self.status.retweeted_status.user.screen_name, self.status.retweeted_status.text];
+
+    } else {
+        string = nil;
+    }
+    return  string;
 }
 
 @end

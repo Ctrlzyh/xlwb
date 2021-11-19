@@ -34,6 +34,7 @@
 		BC8C3EB0272A77D700B99773 /* StatusPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8C3EAF272A77D700B99773 /* StatusPictureView.m */; };
 		BCA1A3EB27004A63001B43E9 /* UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1A3EA27004A63001B43E9 /* UserAccount.m */; };
 		BCBD3F522744F2930045BB5E /* StatusRetweetedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBD3F512744F2930045BB5E /* StatusRetweetedCell.m */; };
+		BCBD3F552745FED60045BB5E /* StatusNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBD3F542745FED60045BB5E /* StatusNormalCell.m */; };
 		BCBF53C52702FA2C0026E747 /* UserAccontViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */; };
 		BCBF53C9270449D20026E747 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBF53C8270449D20026E747 /* NewFeatureViewController.m */; };
 		BCBF53CC27045E400026E747 /* NewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBF53CB27045E400026E747 /* NewFeatureCell.m */; };
@@ -98,6 +99,8 @@
 		BCA1A3EA27004A63001B43E9 /* UserAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccount.m; sourceTree = "<group>"; };
 		BCBD3F502744F2930045BB5E /* StatusRetweetedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusRetweetedCell.h; sourceTree = "<group>"; };
 		BCBD3F512744F2930045BB5E /* StatusRetweetedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusRetweetedCell.m; sourceTree = "<group>"; };
+		BCBD3F532745FED60045BB5E /* StatusNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusNormalCell.h; sourceTree = "<group>"; };
+		BCBD3F542745FED60045BB5E /* StatusNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusNormalCell.m; sourceTree = "<group>"; };
 		BCBF53C32702FA2C0026E747 /* UserAccontViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAccontViewModel.h; sourceTree = "<group>"; };
 		BCBF53C42702FA2C0026E747 /* UserAccontViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAccontViewModel.m; sourceTree = "<group>"; };
 		BCBF53C7270449D20026E747 /* NewFeatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				BC8C3EAF272A77D700B99773 /* StatusPictureView.m */,
 				BCBD3F502744F2930045BB5E /* StatusRetweetedCell.h */,
 				BCBD3F512744F2930045BB5E /* StatusRetweetedCell.m */,
+				BCBD3F532745FED60045BB5E /* StatusNormalCell.h */,
+				BCBD3F542745FED60045BB5E /* StatusNormalCell.m */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				BC42757F26F48FFC00D3FD47 /* UIImageView+Extension.m in Sources */,
 				BCA1A3EB27004A63001B43E9 /* UserAccount.m in Sources */,
 				BC42757C26F48E1400D3FD47 /* UILabel+Extension.m in Sources */,
+				BCBD3F552745FED60045BB5E /* StatusNormalCell.m in Sources */,
 				BCBD3F522744F2930045BB5E /* StatusRetweetedCell.m in Sources */,
 				BCBF53C9270449D20026E747 /* NewFeatureViewController.m in Sources */,
 				BCBF53CC27045E400026E747 /* NewFeatureCell.m in Sources */,

@@ -11,7 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatusListViewModel : NSObject
 @property (nonatomic,strong) NSMutableArray *statusList;
-- (void) loadStatus:(void (^)(BOOL))finished;
+- (void) loadStatusIsPullup:(BOOL)isPullup :(void (^)(BOOL))finished;
+-(void) cacheSingleImage:(NSMutableArray *)dataList With:(void (^)(BOOL))finished;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -67,12 +67,27 @@ static NSString * const redirectUri = @"http://www.baidu.com";
 }
 
 
-- (void) loadStatus:(void (^)(id,NSError *))finished{
+- (void) loadStatusWithSinceId:(int)since_id WithMaxId:(int)max_id :(void (^)(id,NSError *))finished{
     UserAccount *account = [self getUserAccount];
     NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
     NSDictionary *dic = @{
         @"access_token":account.access_token
     };
+    if (since_id > 0){
+        dic = @{
+            @"access_token":account.access_token,
+            @"since_id":[NSNumber numberWithInt:since_id]
+        };
+    }else if (max_id >0){
+        dic = @{
+            @"access_token":account.access_token,
+            @"max_id":[NSNumber numberWithInt:max_id - 1]
+        };
+    }else {
+        dic = @{
+            @"access_token":account.access_token
+        };
+    }
     [[NetworkTools sharedTools] requset:GET URLString:url parameters:dic finished:finished];
 }
 

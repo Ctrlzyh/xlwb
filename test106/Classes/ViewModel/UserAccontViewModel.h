@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)loadAccessTokenCode:(NSString *)code WithFinished:(void (^)(id,NSError *))finished;
 -(void)LoadUserInfo:(NSString *)uid WithAccessToken:(NSString *)accessToken WithFinished:(void (^)(id,NSError *))finished;
 
-- (void) loadStatus:(void (^)(id,NSError *))finished;
+//- (void) loadStatus:(void (^)(id,NSError *))finished;
+- (void) loadStatusWithSinceId:(int)since_id WithMaxId:(int)max_id :(void (^)(id,NSError *))finished;
 @end
 
 NS_ASSUME_NONNULL_END

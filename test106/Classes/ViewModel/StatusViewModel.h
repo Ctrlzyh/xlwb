@@ -16,7 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIImage *userMemberImage;
 @property (nonatomic,strong) UIImage *userVipImage;
 @property (nonatomic,strong) NSArray *thumbnailUrls;
+@property (nonatomic,copy) NSString *retweetedText;
 @property (nonatomic) CGFloat rowHeight;
+@property (nonatomic,copy) NSString *cellId;
 + (instancetype)statusWith:(Status *)status;
 @end
 

@@ -17,25 +17,18 @@ static CGFloat StatusCellIconWidth = 35.0;
 
 @interface StatusCell ()
 @property (nonatomic,strong) StatusCellTopView *topView;
-@property (nonatomic,strong) UILabel *contentLabel;
-@property (nonatomic,strong) StatusCellBottomView *bottomView;
-@property (nonatomic,strong) StatusPictureView *pictureView;
 @end
 
 @implementation StatusCell
 -(void)setViewModel:(StatusViewModel *)viewModel{
     self.topView.viewModel = viewModel;
     self.contentLabel.text = viewModel.status.text;
-    
-    
-    
-    
     self.pictureView.viewModel = viewModel;
     [self.pictureView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(self.pictureView.bounds.size.height));
         make.width.equalTo(@(self.pictureView.bounds.size.width));
-        CGFloat offset = viewModel.thumbnailUrls.count>0?StatusCellMargin:0;
-        make.top.equalTo(self.contentLabel.mas_bottom).offset(offset);
+//        CGFloat offset = viewModel.thumbnailUrls.count>0?StatusCellMargin:0;
+//        make.top.equalTo(self.contentLabel.mas_bottom).offset(offset);
     }];
 }
 
@@ -79,12 +72,7 @@ static CGFloat StatusCellIconWidth = 35.0;
             make.left.equalTo(self.contentView.mas_left).offset(StatusCellMargin);
             make.width.lessThanOrEqualTo(@([UIScreen mainScreen].bounds.size.width - 2 * StatusCellMargin));
     }];
-    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentLabel.mas_bottom).offset(StatusCellMargin);
-            make.left.equalTo(self.contentLabel.mas_left);
-            make.width.equalTo(@300);
-            make.height.equalTo(@90);
-    }];
+
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.pictureView
                              .mas_bottom).offset(StatusCellMargin);

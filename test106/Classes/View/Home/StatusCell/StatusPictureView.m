@@ -61,6 +61,16 @@ static NSString *StatusPictureCellId = @"StatusPictureCellId";
         }
         if(count==1){
             CGSize size = CGSizeMake(150, 120);
+            NSURL *url = self.viewModel.thumbnailUrls[0];
+            UIImage *cacheImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[url absoluteString]];
+            size = cacheImage.size;
+            size.width = size.width < 40 ? 40 : size.width;
+            if (size.width > 300){
+                CGFloat w = 300;
+                CGFloat h = (size.height * w) /size.width;
+                size = CGSizeMake(w, h);
+            }
+            
             layout.itemSize = size;
             return size;
         }
@@ -69,7 +79,7 @@ static NSString *StatusPictureCellId = @"StatusPictureCellId";
             return  CGSizeMake(w, w);
         }
         
-        CGFloat row = (count-1)/rowCount +1;
+        CGFloat row = (count-1)/rowCount + 1;
         CGFloat h = row * itemWidth + (row - 1) * StatusPictureViewItemMargin;
         CGFloat w = rowCount * itemWidth+(rowCount-1)*StatusPictureViewItemMargin;
         return  CGSizeMake(w, h);
@@ -87,7 +97,7 @@ static NSString *StatusPictureCellId = @"StatusPictureCellId";
 //    cell.backgroundColor = [UIColor redColor];
 //    NSLog(@"--imgURL->%@",self.viewModel.thumbnailUrls[indexPath.item]);
     NSURL *url = self.viewModel.thumbnailUrls[indexPath.item];
-    NSLog(@"--imgURL->%@",url);
+//    NSLog(@"--imgURL->%@",url);
     cell.imgURL = url;
     return cell;
 }

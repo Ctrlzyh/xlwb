@@ -12,8 +12,10 @@
 #import "SVProgressHUD.h"
 #import "User.h"
 #import "StatusViewModel.h"
-//#import "StatusCell.h"
+#import "StatusRetweetedCell.h"
 #import "StatusCell/StatusCell.h"
+#import "StatusNormalCell.h"
+
 
 static NSString * const StatusCellNormalId = @"StatusCellNormalId";
 static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
@@ -21,6 +23,7 @@ static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
 @interface HomeTableViewController ()
 @property (nonatomic,strong) NSMutableArray *dataList;
 @property (nonatomic,strong) StatusListViewModel *listViewModel;
+@property (nonatomic,strong) UIActivityIndicatorView *pullupView;
 @end
 
 @implementation HomeTableViewController
@@ -36,11 +39,15 @@ static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
 }
 
 - (void)prepareTableView {
-    [self.tableView registerClass:StatusCell.self forCellReuseIdentifier:StatusRetweetedCellId];
+    [self.tableView registerClass:StatusNormalCell.self forCellReuseIdentifier:StatusCellNormalId];
+    [self.tableView registerClass:StatusRetweetedCell.self forCellReuseIdentifier:StatusRetweetedCellId];
     self.tableView.estimatedRowHeight = 400;
 //    self.tableView.rowHeight = 400;
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
+    self.tableView.tableFooterView = self.pullupView;
 }
 
 -(StatusListViewModel *) listViewModel{
@@ -51,13 +58,18 @@ static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
 }
 
 - (void)loadData {
-    [self.listViewModel loadStatus:^(BOOL isSuccessed) {
+    [self.listViewModel loadStatusIsPullup:(BOOL)[self.pullupView isAnimating] :^(BOOL isSuccessed) {
+        [self.refreshControl endRefreshing];
+        [self.pullupView stopAnimating];
         if(!isSuccessed){
             [SVProgressHUD showInfoWithStatus:@"加载数据错误，请稍后再试"];
         }else{
             [self.tableView reloadData];
         }
     }];
+//    [self.listViewModel loadStatus:^(BOOL isSuccessed) {
+//
+//    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -65,21 +77,32 @@ static NSString * const StatusRetweetedCellId = @"StatusRetweetedCellId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:StatusRetweetedCellId forIndexPath:indexPath];
     StatusViewModel *statusViewModel = self.listViewModel.statusList[indexPath.row];
-//    Status *cellModel = statusViewModel.status;
+    
+    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:statusViewModel.cellId forIndexPath:indexPath];
+   
     cell.viewModel = statusViewModel;
-//    cell.textLabel.text = cellModel.text;
-//    cell.textLabel.text = cellModel.user.screen_name;
-
+    
+    if ((indexPath.row == self.listViewModel.statusList.count - 1)&&![self.pullupView isAnimating]) {
+        [self.pullupView startAnimating];
+        [self loadData];
+    }
     return cell;
+}
+
+- (UIActivityIndicatorView *)pullupView{
+    if(!_pullupView){
+        _pullupView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _pullupView.color = [UIColor lightGrayColor];
+    }
+    return _pullupView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     StatusViewModel *statusViewModel = self.listViewModel.statusList[indexPath.row];
 //    StatusCell *cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatusCellNormalId];
 //    return [cell rowHeight:statusViewModel];
-    NSLog(@"-----%f",statusViewModel.rowHeight);
+//    NSLog(@"-----%f",statusViewModel.rowHeight);
     return statusViewModel.rowHeight;
     
 }
